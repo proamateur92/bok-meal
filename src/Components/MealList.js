@@ -1,25 +1,26 @@
 import styled from 'styled-components';
+import MealItem from './MealItem';
 
-const MealList = props => {
+const MealList = ({ meals }) => {
   return (
     <Container>
-      {props.meals.map(meal => (
-        <div key={meal.name}>
-          <div>{meal.name}</div>
-          <div>{meal.desc}</div>
-          <div>{meal.amount}</div>
-          <div>{meal.quantity}</div>
-        </div>
+      {meals.map(meal => (
+        <MealItem key={meal.desc} meal={meal} />
       ))}
     </Container>
   );
 };
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 70%;
   padding: 15px;
   background-color: #fff;
   margin: auto;
   border-radius: 10px;
+  padding: 10px 20px;
+  margin: 140px auto 50px auto;
 `;
+
 export default MealList;

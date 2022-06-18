@@ -1,18 +1,27 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-const MealList = () => {
+
+const MealList = ({ onCartModal }) => {
+  const cartList = useSelector(state => state.cart);
+  const allMealCount = cartList.reduce((acc, val) => acc + val.count, 0);
+  const handleCartModal = () => {
+    onCartModal(true);
+  };
   return (
-    <Bar>
-      <Logo>bokMeals</Logo>
-      <CartContainer>
-        <FontAwesomeIcon icon={faCartShopping} size='lg' />
-        <span>Your Cart</span>
-        <AmountContainer>
-          <Amount>99+</Amount>
-        </AmountContainer>
-      </CartContainer>
-    </Bar>
+    <>
+      <Bar>
+        <Logo>bokMeals</Logo>
+        <CartContainer onClick={handleCartModal}>
+          <FontAwesomeIcon icon={faCartShopping} size='lg' />
+          <span>Your Cart</span>
+          <AmountContainer>
+            <Amount>{allMealCount}</Amount>
+          </AmountContainer>
+        </CartContainer>
+      </Bar>
+    </>
   );
 };
 
@@ -34,6 +43,7 @@ const CartContainer = styled.div`
   border-radius: 25px;
   font-weight: bold;
   background-color: #481705;
+  cursor: pointer;
   span {
     margin: 0 10px;
   }
