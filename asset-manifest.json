@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/bok-meal/static/js/main.ad54330e.js",
+    "static/media/cover.jpg": "/bok-meal/static/media/cover.d0247323bd12e63596e3.jpg",
+    "index.html": "/bok-meal/index.html",
+    "main.ad54330e.js.map": "/bok-meal/static/js/main.ad54330e.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.ad54330e.js"
+  ]
+}
