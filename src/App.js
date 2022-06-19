@@ -1,29 +1,25 @@
+import logo from './assets/cover.jpg';
 import React, { useState } from 'react';
 
 // 각 컴포넌트 import
-import MealList from './Components/MealList';
-import Header from './Components/Header';
-import CartModal from './Components/CartModal';
+import MealList from './components/Meals/MealList';
+import Header from './components/Layout/Header';
+import CartModal from './components/CartModal';
 
 // style
-import GlobalStyles from './Components/GlobalStyles';
+import GlobalStyles from './components/GlobalStyles';
 import styled from 'styled-components';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
-import { createCart, updateCart } from './redux/module/cart';
 
 function App() {
-  const dispatch = useDispatch();
-
   const DUMMY_DATA = [
     { id: 0, name: 'Sushi', desc: 'Finest fish and veggies', amount: '22.99' },
     { id: 1, name: 'Schnitzel', desc: 'A german specialty!', amount: '16.50' },
     { id: 2, name: 'Barbecue Burger', desc: 'American, raw, meaty', amount: '12.99' },
     { id: 3, name: 'Green Bowl', desc: 'Healthy...and green', amount: '18.99' },
   ];
-
-  const cartList = useSelector(state => state.cart);
 
   // 장바구니 모달 띄워주기
   const [showCartModal, setShowCartModal] = useState(false);
@@ -43,7 +39,7 @@ function App() {
           <GlobalStyles />
           <Header onCartModal={handleCartModal} />
           <Cover>
-            <img />
+            <img src={logo} alt='cover' />
             <Guide>
               <p>Delicious Food, Delivered To You</p>
               <p>Choose your favorite meal from our broad selection of available meals and enjoy a delicious lunch or dinner at home.</p>
@@ -60,12 +56,14 @@ function App() {
 
 const Cover = styled.div`
   width: 100%;
-  height: 200px;
-  background-color: red;
+  height: 250px;
+  z-index: 0;
+  overflow: hidden;
   img {
-    width: 100%;
-    height: 120%;
-    background: url('images/cover.jpg') center/cover no-repeat;
+    width: 110%;
+    height: 100%;
+    object-fit: cover;
+    transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
   }
 `;
 

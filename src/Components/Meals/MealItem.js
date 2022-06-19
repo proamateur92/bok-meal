@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { createCart, updateCart } from '../redux/module/cart';
+import { createCart, updateCart } from '../../redux/module/cart';
 
 const MealItem = ({ meal }) => {
   const [mealCount, setMealCount] = useState(1);
