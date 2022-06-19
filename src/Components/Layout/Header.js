@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import HeaderCartButton from '../UI/HeaderCartButton';
+import HeaderCartButton from './HeaderCartButton';
 import styled from 'styled-components';
 
 const MealList = ({ onCartModal }) => {
